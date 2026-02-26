@@ -6,7 +6,7 @@ export default function LandingPage() {
   const router = useRouter();
 
   const handleGetStartedClick = () => {
-    router.push("/sign-in");
+    router.push("/dashboard");
   };
 
   return (

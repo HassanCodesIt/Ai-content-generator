@@ -1,6 +1,5 @@
 "use client";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
@@ -8,16 +7,6 @@ import { usePathname } from "next/navigation";
 import CursorEffect from './components/CursorEffect';
 import ParallaxScroll from './components/ParallaxScroll';
 import { AuthProvider } from './context/AuthContext';
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 // Metadata is not used in client components directly.
 // export const metadata: Metadata = {
@@ -31,11 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  const showSidebarAndNavbar = !['/', '/sign-in', '/sign-up'].includes(pathname);
+  const showSidebarAndNavbar = pathname !== '/';
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased ${showSidebarAndNavbar ? 'flex h-screen' : ''}`}>
+      <body className={`font-sans antialiased ${showSidebarAndNavbar ? 'flex h-screen' : ''}`}>
         <AuthProvider>
           <CursorEffect />
           <ParallaxScroll />
