@@ -44,6 +44,16 @@ Ensure you have Node.js and npm (or Bun) installed on your machine.
     bun install
     ```
 
+### Environment Variables
+
+Create a `.env.local` file in the root directory with the following environment variable:
+
+```bash
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+You can get your Groq API key from [https://console.groq.com/](https://console.groq.com/).
+
 ### Running the Development Server
 
 First, run the development server:
